@@ -18,5 +18,15 @@
     "reasons": [
       "contains URL"
     ]
+  },
+  {
+    "quote": {
+      "text": "http://spam.com Click here!",
+      "author": "Scammer",
+      "tag": "movies"
+    },
+    "reasons": [
+      "contains URL"
+    ]
   }
 ]

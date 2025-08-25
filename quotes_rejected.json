@@ -1,0 +1,22 @@
+[
+  {
+    "quote": {
+      "text": "Visit http://spam.example",
+      "author": "Bot",
+      "tag": "tech"
+    },
+    "reasons": [
+      "contains URL"
+    ]
+  },
+  {
+    "quote": {
+      "text": "Visit http://spam.example",
+      "author": "Bot",
+      "tag": "tech"
+    },
+    "reasons": [
+      "contains URL"
+    ]
+  }
+]

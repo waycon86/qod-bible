@@ -1,5 +1,6 @@
 import argparse
 import datetime
+import json, pathlib
 
 QUOTES = [
     {"text": "Programs must be written for people to read.", "author": "Harold Abelson", "tag": "tech"},
@@ -19,6 +20,13 @@ QUOTES = [
     {"text": "You don’t have to be great to get started, but you have to get started to be great.", "author": "Les Brown", "tag": "action"},
     {"text": "Other people’s opinion of you does not have to become your reality.", "author": "Les Brown", "tag": "self-belief"},
 ]
+
+def load_approved_quotes():
+    path = pathlib.Path(__file__).parent / "quotes_approved.json"
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data if isinstance(data, list) else []
 
 def normalize(s: str) -> str:
     return " ".join(s.lower().split())
@@ -63,8 +71,10 @@ def main():
     if args.list_categories:
         print("Available categories:", ", ".join(available_tags()))
         return
-
-    pool = QUOTES
+    
+    approved = load_approved_quotes()
+    pool = QUOTES + approved
+    
     if args.debug:
         print(f"[debug] start pool size: {len(pool)}")
 
